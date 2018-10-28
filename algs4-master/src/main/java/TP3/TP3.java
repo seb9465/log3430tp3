@@ -6,6 +6,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import edu.princeton.cs.algs4.Queue;
+
 class TP3 {
 
 	@BeforeEach
@@ -16,9 +18,13 @@ class TP3 {
 	void tearDown() throws Exception {
 	}
 
+	/**
+	 * d1 = < { Queue() -> size() }, { size() == 0 } >
+	 */
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void rapporteur_n() {
+		Queue q = new Queue();
+		assertEquals(q.size(), 0);
 	}
-
+	
 }
