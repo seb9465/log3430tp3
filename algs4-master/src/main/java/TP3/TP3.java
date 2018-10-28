@@ -50,4 +50,33 @@ class TP3 {
 		int result = q.peek();
 		assertEquals(result, val);
 	}
+	
+	/**
+	 * d4 = < { Queue() -> enqueue(1) -> dequeue() -> size() } , { size() == 0 } >
+	 */
+	@Test
+	void transformateurs_first_sequence_1() {
+		Queue<Integer> q = new Queue<Integer>();
+		assertEquals(q.size(), 0);
+		q.enqueue(1);
+		assertEquals(q.size(), 1);
+		q.dequeue();
+		assertEquals(q.size(), 0);
+	}
+	
+	/**
+	 * d5 = < { Queue() -> dequeue(1) -> enqueue() -> size() } , { Error Queue underflow } >
+	 */
+	@Test
+	void transformateurs_first_sequence_2() {
+		Queue<Integer> q = new Queue<Integer>();
+		assertThrows(NoSuchElementException.class, () -> {
+			q.dequeue();
+		}, "Devrait retourner une erreur indiquant qu'il n'y a pas assez d'element pour faire un peek.");
+		q.enqueue(1);
+		int resultat = q.peek();
+		assertEquals(resultat, 1);
+	}
+	
+	
 }
